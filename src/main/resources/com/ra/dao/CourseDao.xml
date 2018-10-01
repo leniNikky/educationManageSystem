@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ra.dao.CourseDao">
+	<resultMap id="c" type="com.ra.pojo.Course">
+		<id column="course_id" property="courseID" jdbcType="VARCHAR" />
+		<result column="course_name" property="courseName" jdbcType="VARCHAR" />
+		<result column="course_intro" property="courseIntro" jdbcType="VARCHAR" />
+		<result column="course_img" property="courseImg" jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 添加课程 -->
+	<insert id="insertCourse" parameterType="com.ra.pojo.Course">
+	insert into course(course_id,course_name,course_intro,course_img) values (#{courseID},#{courseName},#{courseIntro},#{courseImg})
+	</insert>
+	<!-- 更新课程 -->
+	<update id="updateCourse"  parameterType="com.ra.pojo.Course">
+	 update course set course_name=#{courseName},course_intro=#{courseIntro},course_img=#{courseImg} where course_id = ${courseID}
+	</update>
+</mapper>

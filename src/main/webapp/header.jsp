@@ -121,5 +121,7 @@
         </header>
         <div id="header-blank">
         </div>
+         <script src="res/js/website.js">
+        </script>
 </body>
 </html>

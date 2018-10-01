@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ra.dao.LessonDao">
+	<resultMap id="c" type="com.ra.pojo.Lesson">
+		<id column="lesson_id" property="lessonID" jdbcType="VARCHAR" />
+		<result column="lesson_name" property="lessonName" jdbcType="VARCHAR" />
+		<result column="lesson_intro" property="lessonIntro" jdbcType="VARCHAR" />
+		<result column="lesson_img" property="lessonImg" jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 添加教学点 -->
+	<insert id="insertLesson" parameterType="com.ra.pojo.Lesson">
+	insert into lesson(lesson_id,lesson_name,lesson_intro,lesson_img) values (#{lessonID},#{lessonName},#{lessonIntro},#{lessonImg})
+	</insert>
+	<!-- 更新教学点 -->
+	<update id="updateLesson"  parameterType="com.ra.pojo.Lesson">
+	 update lesson set lesson_name=#{lessonName},lesson_intro=#{lessonIntro},lesson_img=#{lessonImg} where lesson_id = ${lessonID}
+	</update>
+	<!-- 删除教学点 -->
+	<delete  id="deleteLesson">
+		delete from lesson where lesson_id = #{lessonID}
+	</delete>
+	<!-- 查找所有教学点 -->
+	<select id="allLessonList"  resultMap="c">
+		select * from lesson
+	</select>
+	<!-- 根据教学点名模糊查询 -->
+	<select id="findLessonByName" parameterType="java.lang.String"  resultMap="c">
+		select * from lesson where lesson_name like '%${value}%'
+	</select>
+	
+</mapper>

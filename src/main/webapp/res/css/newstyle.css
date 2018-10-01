@@ -1,0 +1,9 @@
+@charset "UTF-8";
+#personalpage .title-hr{
+	height:1px;
+	background-color:#666;
+}
+.addcoursebtn{
+	margin-top:40px;
+	margin-right:30px;
+}

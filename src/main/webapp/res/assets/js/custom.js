@@ -34,16 +34,19 @@
                 $(".right-nav-content").eq($(this).index()+4).show().siblings("div").hide();
         });
         $(".left-nav-item3").click(function() {
-                $(".right-nav-content").eq($(this).index()+7).show().siblings("div").hide();
+                $(".right-nav-content").eq($(this).index()+6).show().siblings("div").hide();
         });
         $(".left-nav-item4").click(function() {
-                $(".right-nav-content").eq($(this).index()+9).show().siblings("div").hide();
+                $(".right-nav-content").eq($(this).index()+8).show().siblings("div").hide();
         });
         $(".left-nav-item5").click(function() {
-                $(".right-nav-content").eq($(this).index()+12).show().siblings("div").hide();
+                $(".right-nav-content").eq($(this).index()+10).show().siblings("div").hide();
         });
         $(".left-nav-item6").click(function() {
                 $(".right-nav-content").eq($(this).index()+13).show().siblings("div").hide();
+        });
+        $(".left-nav-item7").click(function() {
+            $(".right-nav-content").eq($(this).index()+14).show().siblings("div").hide();
         });
         
 

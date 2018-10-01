@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ra.dao.AddressDao">
+	<resultMap id="c" type="com.ra.pojo.Address">
+		<id column="address_id" property="addressID" jdbcType="VARCHAR" />
+		<result column="address_name" property="addressName" jdbcType="VARCHAR" />
+		<result column="address_phone" property="addressPhone" jdbcType="VARCHAR" />
+		<result column="address_intro" property="addressIntro" jdbcType="VARCHAR" />
+		<result column="address_img" property="addressImg" jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 添加教学点 -->
+	<insert id="insertAddress" parameterType="com.ra.pojo.Address">
+	insert into address(address_id,address_name,address_phone,address_intro,address_img) values (#{addressID},#{addressName},#{addressPhone},#{addressIntro},#{addressImg})
+	</insert>
+	<!-- 更新教学点 -->
+	<update id="updateAddress"  parameterType="com.ra.pojo.Address">
+	 update address set address_name=#{addressName},address_phone=#{addressPhone},address_intro=#{addressIntro},address_img=#{addressImg} where address_id = ${addressID}
+	</update>
+	<!-- 删除教学点 -->
+	<delete  id="deleteAddress">
+		delete from address where address_id = #{addressID}
+	</delete>
+	<!-- 查找所有教学点 -->
+	<select id="allAddressList"  resultMap="c">
+		select * from address
+	</select>
+	<!-- 根据教学点名模糊查询 -->
+	<select id="findAddressByName" parameterType="java.lang.String"  resultMap="c">
+		select * from address where address_name like '%${value}%'
+	</select>
+	
+</mapper>

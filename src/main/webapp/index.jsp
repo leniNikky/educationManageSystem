@@ -173,8 +173,6 @@
                                     读写新视野
                                 </a>
                             </li>
-                            <!--<li><a href="#"​ cid="7" rel="nofollow">餐饮美食</a></li>
-                            <li><a href="#"​ cid="9" rel="nofollow">设计建筑</a></li>-->
                         </ul>
                     </div>
                 </div>
@@ -951,7 +949,7 @@
                 </div>
             </div>
         </div>
-        <script src="js/website.js">
+        <script src="res/js/website.js">
         </script>
     </body>
     </script>
