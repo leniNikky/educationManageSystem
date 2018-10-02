@@ -15,4 +15,20 @@
 	<update id="updateCourse"  parameterType="com.ra.pojo.Course">
 	 update course set course_name=#{courseName},course_intro=#{courseIntro},course_img=#{courseImg} where course_id = ${courseID}
 	</update>
+	<!-- 删除课程 -->
+	<delete  id="deleteCourse">
+	delete from course where course_id = #{courseID}
+	</delete>
+	<!-- 查找所有课程 -->
+	<select id="allCourseList"  resultMap="c">
+		select * from course
+	</select>
+	<!-- 查找某个课程 -->
+	<select id="findOneCourse"  resultMap="c">
+		select * from course where course_id = #{courseID}
+	</select>
+	<!-- 根据开班课程名模糊查询 -->
+	<select id="findCourseByName" parameterType="java.lang.String"  resultMap="c">
+		select * from course where course_name like '%${value}%'
+	</select>
 </mapper>

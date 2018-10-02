@@ -10,4 +10,5 @@ public interface AddressService {
 	public void deleteAddress(String addressID);
 	public List<Address> allAddressList();
 	public List<Address> findAddressByName(String addressName);
+	public Address findOneAddress(String addressID);
 }

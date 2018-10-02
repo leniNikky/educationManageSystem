@@ -24,6 +24,10 @@
 	<select id="allAddressList"  resultMap="c">
 		select * from address
 	</select>
+	<!-- 查找某个教学点 -->
+	<select id="findOneAddress"  resultMap="c">
+		select * from address where address_id = #{addressID}
+	</select>
 	<!-- 根据教学点名模糊查询 -->
 	<select id="findAddressByName" parameterType="java.lang.String"  resultMap="c">
 		select * from address where address_name like '%${value}%'

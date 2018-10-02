@@ -1,6 +1,7 @@
 package com.ra.controller;
 
 import java.io.File;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,73 +31,25 @@ import com.ra.util.Upload;
 public class AddressController {
 	@Autowired
 	private AddressService addressService;
-	@RequestMapping(value = "/upload", method = RequestMethod.GET)
-	public ModelAndView upload() {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("upload"); // 返回的文件名
-		return mav;
+		//查找所有教学点返回教学点页
+		@RequestMapping(value = "/alladdress")
+		public ModelAndView alladdress() {
+			ModelAndView mav = new ModelAndView();
+			List<Address> alladdress = addressService.allAddressList();
+			mav.addObject("alladdress", alladdress);
+			mav.setViewName("address"); // 返回的文件名
+			return mav;
 
-	}
-
-	@RequestMapping(value = "/formUpload")
-	public ModelAndView formUpload(@RequestParam(required = false) MultipartFile pic, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
-		String url = null;
-		String path = request.getSession().getServletContext().getRealPath("/res/other");
-		CommonsMultipartFile cf = (CommonsMultipartFile) pic;
-		DiskFileItem fi = (DiskFileItem) cf.getFileItem();
-		File f = fi.getStoreLocation();
-		String filename = UUID.randomUUID().toString().replaceAll("-", "")
-				+ pic.getOriginalFilename().substring(pic.getOriginalFilename().lastIndexOf('.'));
-		try {
-			url = Upload.uploader(f, path, filename);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		mav.addObject("url", url);
-		mav.setViewName("addSuccess"); 
-		return mav;
+		//查找某个课程返回课程详情页
+			@RequestMapping(value = "/address_show")
+			public ModelAndView address_show(String addressID) {
+				ModelAndView mav = new ModelAndView();
+				Address address = addressService.findOneAddress(addressID);
+				mav.addObject("address", address);
+				mav.setViewName("address_show"); // 返回的文件名
+				return mav;
 
-	}
-
-	@RequestMapping(value = "/ajaxUpload1")
-	public void ajaxUpload1(@RequestParam(required = false) MultipartFile pic, HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		JSONObject jo = new JSONObject();
-		String url = null;
-		String path = request.getSession().getServletContext().getRealPath("/res/other");
-		CommonsMultipartFile cf = (CommonsMultipartFile) pic;
-		DiskFileItem fi = (DiskFileItem) cf.getFileItem();
-		File f = fi.getStoreLocation();
-		String filename = UUID.randomUUID().toString().replaceAll("-", "")
-				+ pic.getOriginalFilename().substring(pic.getOriginalFilename().lastIndexOf('.'));
-		if (pic.getSize() > 4000000) {
-			jo.put("max", "图片无法上传，请确保大小在3MB以内。");
-		} else {
-			url = Upload.uploader(f, path, filename);
-			jo.put("url", url);
-			
-		}
-		response.setContentType("application/json;charset=UTF-8");
-		response.getWriter().write(jo.toString());
-
-	}
-	
-	@RequestMapping(value = "/addressUpload_1")
-	public ModelAndView addressUpload(Address address) {
-		System.out.println("this is controller1"+address);
-		ModelAndView mav = new ModelAndView();
-		UUID uuid = UUID.randomUUID();
-		String addressID = uuid.toString();
-		address.setAddressID(addressID);
-		System.out.println("this is controller"+address);
-		addressService.insertAddress(address);
-		mav.addObject("msg", "添加成功！");
-		mav.setViewName("index"); // 返回的文件名
-		return mav;
-
-	}
-	
+			}
 
 }

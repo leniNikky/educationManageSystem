@@ -3,6 +3,7 @@ package com.ra.controller;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -108,5 +109,25 @@ public class CourseUploadController {
 		return mav;
 
 	}
+	//查找所有课程返回课程页
+	@RequestMapping(value = "/allcourse")
+	public ModelAndView allcourse() {
+		ModelAndView mav = new ModelAndView();
+		List<Course> allcourse = courseService.allCourseList();
+		mav.addObject("allcourse", allcourse);
+		mav.setViewName("course"); // 返回的文件名
+		return mav;
+
+	}
+	//查找某个课程返回课程详情页
+		@RequestMapping(value = "/course_show")
+		public ModelAndView product_show(String courseID) {
+			ModelAndView mav = new ModelAndView();
+			Course course = courseService.findOneCourse(courseID);
+			mav.addObject("course", course);
+			mav.setViewName("course_show"); // 返回的文件名
+			return mav;
+
+		}
 
 }

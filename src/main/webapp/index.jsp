@@ -37,6 +37,8 @@
         <script src="res/js/bootstrap.min.js">
         </script>
         <script>
+		 window.location.href="index";
+
             jQuery(window).scrollTop(0);
             jQuery('html,body').scrollTop(0);
             new WOW().init({

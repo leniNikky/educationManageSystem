@@ -81,12 +81,12 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="product.html"​>
+                            <a href="/allcourse"​>
                                 课程
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="case.html"​>
+                            <a href="/alladdress"​>
                                 教学点
                             </a>
                         </div>

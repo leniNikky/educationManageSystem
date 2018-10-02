@@ -30,13 +30,13 @@ public class LessonServiceImpl implements LessonService {
 	}
 
 	public List<Lesson> allLessonList() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Lesson> alllesson = lessonDao.allLessonList();
+		return alllesson;
 	}
 
 	public List<Lesson> findLessonByName(String lessonName) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Lesson> lesson = lessonDao.findLessonByName(lessonName);
+		return lesson;
 	}
 
 }

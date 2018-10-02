@@ -10,4 +10,5 @@ public interface AddressDao {
 	void deleteAddress(String addressID);
 	List<Address> allAddressList();
 	List<Address> findAddressByName(String addressName);
+	Address findOneAddress(String addressID);
 }

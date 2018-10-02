@@ -71,7 +71,7 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="index.html"​ class='on trans'>
+                            <a href="index.jsp"​ class='on trans'>
                                 首页
                             </a>
                         </div>
@@ -81,17 +81,17 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="product.html"​>
+                            <a href="/allcourse"​>
                                 课程
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="case.html"​>
+                            <a href="/alladdress"​>
                                 教学点
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="price.html"​>
+                            <a href="/alllesson"​>
                                 预报名
                             </a>
                         </div>

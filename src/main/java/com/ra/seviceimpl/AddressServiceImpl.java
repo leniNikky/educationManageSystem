@@ -30,13 +30,16 @@ public class AddressServiceImpl implements AddressService {
 	}
 
 	public List<Address> allAddressList() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Address> alladress = addressDao.allAddressList();
+		return alladress;
 	}
 
 	public List<Address> findAddressByName(String addressName) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Address> address = addressDao.findAddressByName(addressName);
+		return address;
 	}
-
+	public Address findOneAddress(String addressID) {
+		Address address = addressDao.findOneAddress(addressID);
+		return address;
+	}
 }
