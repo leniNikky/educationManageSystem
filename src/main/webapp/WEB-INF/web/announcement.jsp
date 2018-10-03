@@ -69,7 +69,7 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="index.jsp"​>
+                            <a href="/index"​>
                                 首页
                             </a>
                         </div>
@@ -84,7 +84,7 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="/alladdress"​ class='on trans'>
+                            <a href="/alladdress"​>
                                 教学点
                             </a>
                         </div>
@@ -94,7 +94,7 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="/allannouncement"​>
+                            <a href="/allannouncementofgeneral"​ class='on trans'>
                                 公告
                             </a>
                         </div>
@@ -114,19 +114,11 @@
                 </div>
             </div>
         </header>
-          <div id="header-blank">
+        <div id="header-blank">
         </div>
         <div id="body" class="trans">
             <div id="products-detail">
-                <div id="banner" class="relative hide992">
-                    <div class="bd over">
-                        <div class="bar relative fz0 nowrap">
-                            <div class="item relative inline-block text-center fz0 over item-0">
-                                <img src="res/picture/44c5a1b00c.jpg" alt="" class="max-w100">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div id="small-banner" class="relative show992">
                     <div class="bd over">
                         <div class="bar relative fz0 nowrap">
@@ -137,46 +129,46 @@
                 </div>
                 <div class="blank25">
                 </div>
+                <c:forEach items="${announcements}" var="announcement">
                 <div id="info-detail" class="wrap1200 wow fadeInUp">
                     <div class="top text-center">
                         <div class="info-title">
-                            ${address.addressName }
-                        </div>
-                        <div class="blank9">
+                           ${announcement.announcementTitle }
                         </div>
                         <span>
-                            联系方式：${address.addressPhone }
+                            发布时间： ${announcement.announcementTime }&nbsp;&nbsp;发布者：  ${announcement.announcer }
                         </span>
+                        <div class="blank9">
+                        </div>
                     </div>
                     <div class="blank25">
                     </div>
                     <div class="editor wow fadeInUp">
                         <div>
-                            <p style="text-align: center;font-size:1.1em">&nbsp;
-                                 ${address.addressIntro }
+                            <p style="text-align: left;font-size:1.1em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                ${announcement.announcementContent }
                             </p>
-                        </div>
-                        <div style="text-align: center;">
-                            <img alt="" src="${address.addressImg }" />
                         </div>
                     </div>
                 </div>
+                </c:forEach>
                 <div class="blank25">
                 </div>
                 <div class="blank25">
                 </div>
-                
-                
-           
-            <div class="blank25">
+      
+            <div class="blank25 hide992">
+            </div>
+            <div class="blank25 hide992">
             </div>
             <div class="blank25">
             </div>
-			<jsp:include page="footer.jsp"/>
-        	<jsp:include page="rightfollow.jsp"/>
+            <div class="blank25">
+            </div>
+         <jsp:include page="footer.jsp"/>
+           <jsp:include page="rightfollow.jsp"/>
         </div>
-        <script src="js/website.js">
+        <script src="res/js/website.js">
         </script>
-    </body>
-
+</body>
 </html>

@@ -10,4 +10,5 @@ public interface LessonDao {
 	void deleteLesson(String lessonID);
 	List<Lesson> allLessonList();
 	List<Lesson> findLessonByName(String lessonName);
+	Lesson findOneLesson(String lessonID);
 }

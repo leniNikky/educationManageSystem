@@ -20,6 +20,7 @@
         <link href="res/css/global.css" rel="stylesheet" type="text/css" />
         <link href="res/css/lib.css" rel="stylesheet" type="text/css" />
         <link href="res/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="res/css/newstyle.css" rel="stylesheet" type="text/css" />
         <script src="res/js/jquery-1.9.1.min.js">
         </script>
         <script src="res/js/global.js">
@@ -55,7 +56,7 @@
         </script>
 </head>
 <body>
- <header class="trans border-box  ">
+<header class="trans border-box  ">
             <div class="wrap clean relative">
                 <div id="logo" class="fl relative trans">
                     <a href="index.jsp"​ class="relative trans">
@@ -84,12 +85,12 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="/alladdress"​ class='on trans'>
+                            <a href="/alladdress"​>
                                 教学点
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="/alllesson"​>
+                            <a href="/alllesson"​ class='on trans'>
                                 预报名
                             </a>
                         </div>
@@ -114,69 +115,102 @@
                 </div>
             </div>
         </header>
-          <div id="header-blank">
+        <div id="header-blank" class="show992">
         </div>
         <div id="body" class="trans">
-            <div id="products-detail">
-                <div id="banner" class="relative hide992">
-                    <div class="bd over">
-                        <div class="bar relative fz0 nowrap">
-                            <div class="item relative inline-block text-center fz0 over item-0">
-                                <img src="res/picture/44c5a1b00c.jpg" alt="" class="max-w100">
+            <div id="banner" class="relative hide992">
+                <div class="bd over">
+                    <div class="bar relative fz0 nowrap">
+                        <div class="item relative inline-block text-center fz0 over item-0">
+                            <img src="res/picture/710472f909.jpg" alt="" class="max-w100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="small-banner" class="relative show992">
+                <div class="bd over">
+                    <div class="bar relative fz0 nowrap">
+                    </div>
+                </div>
+            </div>
+            <div id="tutorial">
+                <div class="tutorial-support">
+                    <div class="wrap clean">
+                        <form class="support-search fl relative" action="/findLessonByName" method="post">
+                            <div class=" block border-box">
+                            <input type="text" class="text fl" name="lessonName" value="" placeholder="请输入想找的开班课程">
+                 			<button type="submit" class="btn btn-primary fl" style="margin:15px 0 0 10px;">搜索</button>
+                 			</div>
+                        </form>
+                        <!--<a href="#"​ class="play ico trans fl middle wow fadeInUp">视频</a>-->
+                        <div class="line fl middle">
+                        </div>
+                       
+                        
+                        <a href="#"​ class="question ico trans fr middle wow fadeInUp">
+                           报名须知
+                        </a>
+                    </div>
+                </div>
+                <div class="wrap">
+                    <div class="tutorial-list clean">
+                     <c:forEach items="${alllesson}" var="lesson">
+                        <div class='item wow fadeInUp eleflr'>
+                            <div class="date fl">
+                                <div class="year">
+                                    ${lesson.lessonYear }
+                                </div>
+                                <div class="day">
+                                    ${lesson.lessonDate }
+                                </div>
+                            </div>
+                            <div class="info fl">
+                                <div class="name text-over">
+                                    <a href="/lesson_show?lessonID=${lesson.lessonID }"​ class="trans">
+                                       ${lesson.lessonName }
+                                    </a>
+                                </div>
+                                <div class="brief over">
+                                    ${lesson.lessonIntro }
+                                </div>
                             </div>
                         </div>
+                     </c:forEach>
+                    </div>
+                    <div id="turn_page" class="wow fadeInUp" first last>
+                        <font class="page_item_current">
+                            1
+                        </font>
+                        <a class="page_item" href='list_12_2.html'>
+                            2
+                        </a>
+                        <a class="page_button" href='list_12_2.html'>
+                            <i class="fa fa-chevron-right trans middle">
+                            </i>
+                        </a>
                     </div>
                 </div>
-                <div id="small-banner" class="relative show992">
-                    <div class="bd over">
-                        <div class="bar relative fz0 nowrap">
-                        </div>
+                <div class="blank20">
+                </div>
+                <div class="blank20">
+                </div>
+                 <div class="text-center">
+                    <div class="try-button-box wrap fz0">
+                        <a href="#"​ target="_blank"
+                        class="button inline-block text-center trans wow fadeInUp">
+                            我要预报名
+                        </a>
                     </div>
                 </div>
-                <div class="blank25">
+                <div class="blank20">
                 </div>
-                <div class="blank25">
+                <div class="blank20">
                 </div>
-                <div id="info-detail" class="wrap1200 wow fadeInUp">
-                    <div class="top text-center">
-                        <div class="info-title">
-                            ${address.addressName }
-                        </div>
-                        <div class="blank9">
-                        </div>
-                        <span>
-                            联系方式：${address.addressPhone }
-                        </span>
-                    </div>
-                    <div class="blank25">
-                    </div>
-                    <div class="editor wow fadeInUp">
-                        <div>
-                            <p style="text-align: center;font-size:1.1em">&nbsp;
-                                 ${address.addressIntro }
-                            </p>
-                        </div>
-                        <div style="text-align: center;">
-                            <img alt="" src="${address.addressImg }" />
-                        </div>
-                    </div>
-                </div>
-                <div class="blank25">
-                </div>
-                <div class="blank25">
-                </div>
-                
-                
-           
-            <div class="blank25">
             </div>
-            <div class="blank25">
-            </div>
-			<jsp:include page="footer.jsp"/>
-        	<jsp:include page="rightfollow.jsp"/>
+           <jsp:include page="footer.jsp"></jsp:include>
+            <jsp:include page="rightfollow.jsp"></jsp:include>
         </div>
-        <script src="js/website.js">
+        <script src="res/js/website.js">
         </script>
-    </body>
-
+</body>
 </html>

@@ -10,4 +10,5 @@ public interface LessonService {
 	public void deleteLesson(String lessonID);
 	public List<Lesson> allLessonList();
 	public List<Lesson> findLessonByName(String lessonName);
+	public Lesson findOneLesson(String lessonID);
 }

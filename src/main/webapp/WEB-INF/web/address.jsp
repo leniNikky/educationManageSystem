@@ -20,6 +20,7 @@
         <link href="res/css/global.css" rel="stylesheet" type="text/css" />
         <link href="res/css/lib.css" rel="stylesheet" type="text/css" />
         <link href="res/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="res/css/newstyle.css" rel="stylesheet" type="text/css" />
         <script src="res/js/jquery-1.9.1.min.js">
         </script>
         <script src="res/js/global.js">
@@ -89,12 +90,12 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="price.html"​>
+                            <a href="/alllesson"​>
                                 预报名
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="news.html"​>
+                            <a href="/allannouncement"​>
                                 公告
                             </a>
                         </div>
@@ -134,7 +135,7 @@
                 <div id="instance" class="wrap clean">
                     <div class="instance-list clean">
                      <c:forEach items="${alladdress}" var="address">
-                        <div class='item border-box over wow fadeInUp fl' style="margin-right:1%">
+                        <div class='item border-box over wow fadeInUp eleflr' style="margin-right:1%">
                             <div class="relative clean">
                                 <div class="cover fl relative">
                                     <img src="res/picture/notebook.png" alt="${address.addressName }" class="trans max-w100" ondragstart="return false;">
@@ -200,7 +201,7 @@
             <div class="text-center">
                 <div class="try-button-box wrap fz0">
                     <a href="#" ​ target="_blank" class="button inline-block text-center trans wow fadeInUp">
-                        我要私人定制
+                        我要预报名
                     </a>
                 </div>
             </div>
@@ -212,163 +213,8 @@
             </div>
             <div class="blank25">
             </div>
-            <footer>
-                <div class="blank15">
-                </div>
-                <div class="blank15">
-                </div>
-                <div class="wrap clean">
-                    <div class="left fl">
-                        <div class="title wow fadeInUp">
-                            互联网 · 最高端 模板一样可以很精致
-                        </div>
-                        <div class="hotline wow fadeInUp">
-                            0755-88888888 400-8888-888
-                        </div>
-                        <div class="address wow fadeInUp">
-                            广东省深圳市前海经济开发区88号&nbsp;&nbsp;&nbsp;
-                            <a href="#" ​ target="_blank">
-                                ICP备XXXXXXXX号
-                            </a>
-                            &nbsp;
-                            <a target="_blank" href="http://www.beian.gov.cn/" style="display:inline-block;">
-                                <img src="picture/govbeian.png" align="absmiddle" />
-                                &nbsp;公网安备XXXXXXXXXXXXXX号
-                            </a>
-                        </div>
-                    </div>
-                    <div class="follow fr fz0">
-                        <div class="title relative text-center wow fadeInUp">
-                            <span class="relative">
-                                关注
-                            </span>
-                        </div>
-                        <div class="text-center">
-                            <div class="item text-center inline-block wow fadeInUp">
-                                <a href="#" ​ class="ico block trans qq" rel="nofollow">
-                                    <i class="fa fa-qq middle trans" onClick="popService(service2);">
-                                    </i>
-                                </a>
-                                QQ
-                            </div>
-                            <div class="item text-center inline-block wow fadeInUp relative">
-                                <a href="#" ​ class="ico block trans wechat" rel="nofollow">
-                                    <i class="fa fa-weixin middle trans">
-                                    </i>
-                                </a>
-                                微信
-                                <div class="qrcode absolute trans">
-                                    <img src="picture/erweima.png" alt="" width="200" />
-                                </div>
-                            </div>
-                            <div class="item text-center inline-block wow fadeInUp">
-                                <a href="#" ​ class="ico block trans sina" rel="nofollow" target="_blank">
-                                    <i class="fa fa-weibo middle trans">
-                                    </i>
-                                </a>
-                                微博
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="blank20">
-                </div>
-                <div class="blank15">
-                </div>
-                <div class="bottom">
-                    <div class="wrap clean">
-                        <div class="links fl">
-                            友情链接 :
-                            <a href='http://www.17sucai.com/' target='_blank'>
-                                网站模板
-                            </a>
-                        </div>
-                        <div class="copyright fr">
-                            Copyright &copy; 2002-2017 某某网络建站有限公司 版权所有 ICP备XXXXXXXX号
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <div id="follow">
-                <div id="openHotline" class="item relative hide992" row="2">
-                    <a href="#" ​ class="ico orange block absolute" title="服务热线" onClick="OptHot(1);OptQrcode(0);OptOnline(0);"
-                    rel="nofollow">
-                    </a>
-                    <div id="hotline">
-                        <div class="top clean">
-                            服务热线
-                            <a href="#" ​ class="fr fa fa-times" title="隐藏热线" onClick="OptHot(0);"
-                            rel="nofollow">
-                            </a>
-                        </div>
-                        <div class="qq-list">
-                            <a class="list block trans">
-                                0755-88888888
-                            </a>
-                            <a class="list block trans">
-                                400-8888-888
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div id="openOnline" class="item relative hide992" row="2">
-                    <a href="#" ​ class="ico blue block absolute" title="在线咨询" onClick="OptOnline(1);OptQrcode(0);OptHot(0);"
-                    rel="nofollow">
-                        <span class="middle fa fa-qq fa-2x">
-                        </span>
-                    </a>
-                    <div id="online">
-                        <div class="top clean">
-                            在线咨询
-                            <a href="#" ​ class="fr fa fa-times" title="隐藏咨询" onClick="OptOnline(0);"
-                            rel="nofollow">
-                            </a>
-                        </div>
-                        <div class="qq-list">
-                            <a href="#" ​ class="list block trans" title="咨询TA" target="_blank" rel="nofollow"
-                            d="2498989222">
-                                <span class="fa fa-qq trans">
-                                </span>
-                                资深顾问
-                            </a>
-                            <a href="#" ​ class="list block trans" title="咨询TA" target="_blank" rel="nofollow"
-                            d="88889999">
-                                <span class="fa fa-qq trans">
-                                </span>
-                                资深顾问
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item relative show992 trans">
-                    <a href="#" ​ class="ico blue block trans phone" rel="nofollow">
-                    </a>
-                </div>
-                <div class="item relative trans">
-                    <a href="#" ​ class="ico red block trans sina" title="关注微博" target="_blank"
-                    rel="nofollow">
-                        <span class="middle fa fa-weibo fa-2x">
-                        </span>
-                    </a>
-                </div>
-                <div id="openQrcode" class="item relative trans">
-                    <a href="#" ​ class="ico green block trans wechat" title="关注微信" onClick="OptQrcode();OptOnline(0)"
-                    rel="nofollow">
-                        <span class="middle fa fa-weixin fa-2x">
-                        </span>
-                    </a>
-                    <div id="wechat-qrcode">
-                        <img src="picture/erweima.png" alt="" width="200" />
-                    </div>
-                </div>
-                <div class="item relative">
-                    <a href="#" ​ class="ico block trans totop show totop" title="回到顶部" onClick="toTop();"
-                    rel="nofollow">
-                        <span class="middle fa fa-angle-up fa-2x">
-                        </span>
-                    </a>
-                </div>
-            </div>
+           <jsp:include page="footer.jsp"></jsp:include>
+           <jsp:include page="rightfollow.jsp"></jsp:include>
         </div>
         <script src="res/js/website.js">
         </script>

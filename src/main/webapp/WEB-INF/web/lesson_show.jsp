@@ -79,17 +79,17 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="/allcourse"​>
+                            <a href="/allcourse">
                                 课程
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="/alladdress"​ class='on trans'>
+                            <a href="/alladdress"​>
                                 教学点
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="/alllesson"​>
+                            <a href="/alllesson"​ class='on trans'​>
                                 预报名
                             </a>
                         </div>
@@ -114,7 +114,7 @@
                 </div>
             </div>
         </header>
-          <div id="header-blank">
+        <div id="header-blank">
         </div>
         <div id="body" class="trans">
             <div id="products-detail">
@@ -122,7 +122,7 @@
                     <div class="bd over">
                         <div class="bar relative fz0 nowrap">
                             <div class="item relative inline-block text-center fz0 over item-0">
-                                <img src="res/picture/44c5a1b00c.jpg" alt="" class="max-w100">
+                                <img src="res/picture/2620184e5e.jpg" alt="" class="max-w100">
                             </div>
                         </div>
                     </div>
@@ -140,43 +140,170 @@
                 <div id="info-detail" class="wrap1200 wow fadeInUp">
                     <div class="top text-center">
                         <div class="info-title">
-                            ${address.addressName }
-                        </div>
-                        <div class="blank9">
+                           ${lesson.lessonName }
                         </div>
                         <span>
-                            联系方式：${address.addressPhone }
+                            发布时间： ${lesson.lessonYear }-${lesson.lessonDate }
                         </span>
+                        <div class="blank9">
+                        </div>
                     </div>
                     <div class="blank25">
                     </div>
                     <div class="editor wow fadeInUp">
                         <div>
-                            <p style="text-align: center;font-size:1.1em">&nbsp;
-                                 ${address.addressIntro }
+                            <p style="text-align: center;font-size:1.1em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                ${lesson.lessonIntro }
                             </p>
                         </div>
                         <div style="text-align: center;">
-                            <img alt="" src="${address.addressImg }" />
+                            <img alt="" src="${lesson.lessonImg }" />
                         </div>
+                    </div>
+                </div>
+                <div class="blank20">
+                </div>
+                <div class="blank20">
+                </div>
+                 <div class="text-center">
+                    <div class="try-button-box wrap fz0">
+                        <a href="#"​ target="_blank"
+                        class="button inline-block text-center trans wow fadeInUp">
+                            我要预报名
+                        </a>
                     </div>
                 </div>
                 <div class="blank25">
                 </div>
                 <div class="blank25">
                 </div>
-                
-                
-           
-            <div class="blank25">
+                <div class="products-process text-center">
+                    <div class="detail-title">
+                        「急」速报名，立刻
+                    </div>
+                    <div class="process-list wrap">
+                        <div class="process-item inline-block relative">
+                            <div class="bg relative">
+                                <img src="res/picture/hexagon-bg.png" alt="" class="max-w100 block">
+                            </div>
+                            <div class="shadow absolute">
+                            </div>
+                            <div class="main absolute">
+                                <div class="ico i1">
+                                </div>
+                                <div class="name">
+                                    注册
+                                </div>
+                            </div>
+                        </div>
+                        <div class="process-item inline-block relative">
+                            <div class="bg relative">
+                                <img src="res/picture/hexagon-bg.png" alt="" class="max-w100 block">
+                            </div>
+                            <div class="shadow absolute">
+                            </div>
+                            <div class="main absolute">
+                                <div class="ico i2">
+                                </div>
+                                <div class="name">
+                                    选择
+                                </div>
+                            </div>
+                        </div>
+                        <div class="process-item inline-block relative">
+                            <div class="bg relative">
+                                <img src="res/picture/hexagon-bg.png" alt="" class="max-w100 block">
+                            </div>
+                            <div class="shadow absolute">
+                            </div>
+                            <div class="main absolute">
+                                <div class="ico i3">
+                                </div>
+                                <div class="name">
+                                    购买
+                                </div>
+                            </div>
+                        </div>
+                        <div class="process-item inline-block relative">
+                            <div class="bg relative">
+                                <img src="res/picture/hexagon-bg.png" alt="" class="max-w100 block">
+                            </div>
+                            <div class="shadow absolute">
+                            </div>
+                            <div class="main absolute">
+                                <div class="ico i4">
+                                </div>
+                                <div class="name">
+                                    成功
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="products-service text-center clean">
+                    <div class="detail-title">
+                        完善的学习服务
+                    </div>
+                    <div class="service-list wrap fz0">
+                        <div class="service-item inline-block">
+                            <div class="ico i1">
+                            </div>
+                            <div class="name">
+                                购买课程
+                            </div>
+                        </div>
+                        <div class="service-item inline-block">
+                            <div class="ico i2">
+                            </div>
+                            <div class="name">
+                                课后学习
+                            </div>
+                        </div>
+                        <div class="service-item inline-block">
+                            <div class="ico i3">
+                            </div>
+                            <div class="name">
+                                课前预习
+                            </div>
+                        </div>
+                        <div class="service-item inline-block">
+                            <div class="ico i4">
+                            </div>
+                            <div class="name">
+                                作业跟踪
+                            </div>
+                        </div>
+                        <div class="service-item inline-block">
+                            <div class="ico i5">
+                            </div>
+                            <div class="name">
+                                解答疑惑
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blank25 hide992">
+            </div>
+            <div class="blank25 hide992">
             </div>
             <div class="blank25">
             </div>
-			<jsp:include page="footer.jsp"/>
-        	<jsp:include page="rightfollow.jsp"/>
+            <div class="blank25">
+            </div>
+            
+            <div class="blank25 hide992">
+            </div>
+            <div class="blank25 hide992">
+            </div>
+            <div class="blank25">
+            </div>
+            <div class="blank25">
+            </div>
+         <jsp:include page="footer.jsp"/>
+           <jsp:include page="rightfollow.jsp"/>
         </div>
-        <script src="js/website.js">
+        <script src="res/js/website.js">
         </script>
-    </body>
-
+</body>
 </html>

@@ -7,3 +7,14 @@
 	margin-top:40px;
 	margin-right:30px;
 }
+.eleflr:nth-child(even){
+	float:right;
+}
+.eleflr:nth-child(odd){
+	float:left;
+}
+.eletxt{
+	overflow: hidden;
+    white-space: wrap;
+    text-overflow: ellipsis;
+}

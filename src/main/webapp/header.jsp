@@ -76,7 +76,7 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="about.html"​>
+                            <a href="/about"​>
                                 关于
                             </a>
                         </div>
@@ -96,7 +96,7 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="news.html"​>
+                            <a href="/allannouncement"​>
                                 公告
                             </a>
                         </div>

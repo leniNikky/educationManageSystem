@@ -41,7 +41,7 @@ public class AddressController {
 			return mav;
 
 		}
-		//查找某个课程返回课程详情页
+		//查找某个教学点返回教学点详情页
 			@RequestMapping(value = "/address_show")
 			public ModelAndView address_show(String addressID) {
 				ModelAndView mav = new ModelAndView();

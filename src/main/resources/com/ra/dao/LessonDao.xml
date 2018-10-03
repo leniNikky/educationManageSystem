@@ -25,6 +25,10 @@
 	<select id="allLessonList"  resultMap="c">
 		select * from lesson
 	</select>
+	<!-- 查找某个开班课程 -->
+	<select id="findOneLesson"  resultMap="c">
+		select * from lesson where lesson_id = #{lessonID}
+	</select>
 	<!-- 根据开班课程名模糊查询 -->
 	<select id="findLessonByName" parameterType="java.lang.String"  resultMap="c">
 		select * from lesson where lesson_name like '%${value}%'

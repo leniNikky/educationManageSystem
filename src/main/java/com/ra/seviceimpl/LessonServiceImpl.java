@@ -38,5 +38,8 @@ public class LessonServiceImpl implements LessonService {
 		List<Lesson> lesson = lessonDao.findLessonByName(lessonName);
 		return lesson;
 	}
-
+	public Lesson findOneLesson(String lessonID) {
+		Lesson lesson = lessonDao.findOneLesson(lessonID);
+		return lesson;
+	}
 }

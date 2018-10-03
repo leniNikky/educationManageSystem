@@ -91,12 +91,12 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="price.html"​>
+                            <a href="/alllesson"​>
                                 预报名
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="news.html"​>
+                            <a href="allannouncementofgeneral"​>
                                 公告
                             </a>
                         </div>
