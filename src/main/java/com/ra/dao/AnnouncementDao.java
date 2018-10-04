@@ -9,5 +9,4 @@ public interface AnnouncementDao {
 	void deleteAnnouncement(String announcementID);
 	List<Announcement> allAnnouncement();
 	List<Announcement> allAnnouncementOfGeneral();
-
 }

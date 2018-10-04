@@ -2,6 +2,7 @@ package com.ra.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,8 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.ra.pojo.Course;
 import com.ra.pojo.User;
 import com.ra.service.UserService;
+import com.ra.util.MD5Utils;
 
 @Controller
 public class UserController {
@@ -36,7 +39,7 @@ public class UserController {
 	        		loginMsg = "请输入账号或密码！";
 					 }
 				System.out.println(email+password+"这是Controller");
-				User u = userService.userLogin(email,password);
+				User u = userService.userLogin(email,MD5Utils.MD5(password));
 				if(u!=null) {
 					request.getSession().setAttribute("user", u);
 					loginMsg = "loginSuccess";
@@ -62,4 +65,21 @@ public class UserController {
 				return mav;
 	
 		}
+	
+	//添加员工（入职）
+	@RequestMapping(value = "/addUser")
+	public ModelAndView addUser(User user) {
+		System.out.println("this is controller1"+user);
+		ModelAndView mav = new ModelAndView();
+		UUID uuid = UUID.randomUUID();
+		String userID = uuid.toString();
+		String password = "ra"+user.getPhone();
+		user.setUserID(userID);
+		user.setPassword(MD5Utils.MD5(password));
+		userService.addUser(user);
+		mav.addObject("msg", "添加成功！");
+		mav.setViewName("user"); // 返回的文件名
+		return mav;
+
+	}
 }

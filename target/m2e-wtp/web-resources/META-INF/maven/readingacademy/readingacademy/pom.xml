@@ -137,6 +137,19 @@
 		    <version>2.8.2</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-catalina -->
+		<dependency>
+		    <groupId>org.apache.tomcat</groupId>
+		    <artifactId>tomcat-catalina</artifactId>
+		    <version>9.0.12</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-coyote -->
+		<dependency>
+		    <groupId>org.apache.tomcat</groupId>
+		    <artifactId>tomcat-coyote</artifactId>
+		    <version>9.0.10</version>
+		</dependency>
+		
 		
 		
 	</dependencies>

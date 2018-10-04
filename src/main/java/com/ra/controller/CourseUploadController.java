@@ -66,6 +66,7 @@ public class CourseUploadController {
 	@RequestMapping(value = "/ajaxUpload1")
 	public void ajaxUpload1(@RequestParam(required = false) MultipartFile pic, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		System.out.println("这是图片的ajax");
 		JSONObject jo = new JSONObject();
 		String url = null;
 		String path = request.getSession().getServletContext().getRealPath("/res/other");
@@ -77,7 +78,7 @@ public class CourseUploadController {
 		if (pic.getSize() > 4000000) {
 			jo.put("max", "图片无法上传，请确保大小在3MB以内。");
 		} else {
-			url = Upload.uploader(f, path, filename);
+			url = Upload.upload(f, path, filename);
 			jo.put("url", url);
 			
 		}

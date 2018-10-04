@@ -17,5 +17,8 @@ public class UserServiceImpl implements UserService {
 		 System.out.println(email+password+"’‚ «Service"+u);
 		 return u;
 	}
+	public void addUser(User user) {
+		userDao.addUser(user);
+	}
 
 }

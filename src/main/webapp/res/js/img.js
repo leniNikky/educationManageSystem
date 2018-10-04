@@ -6,6 +6,7 @@
  */
 function uploadPic1(id, formid) {
 	//上传图片 异步
+	alert(123)
 	var options = {
 		url : "/ajaxUpload1",
 		type : "post",

@@ -15,15 +15,38 @@
 	<link rel="stylesheet" href="res/assets/css/jquery.mCustomScrollbar.min.css" />
     <link rel="stylesheet" href="res/assets/css/custom.css">
     <link rel="stylesheet" type="text/css" href="res/css/newstyle.css">
+    <script src="res/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="res/js/jquery.form.js" type="text/javascript"></script>
 </head>
+<script>
+function uploadPic1(id, formid) {
+	//上传图片 异步
+	alert(123)
+	var options = {
+		url : "/ajaxUpload1",
+		type : "post",
+		dataType : "json",
+		success : function(data) {
+			if (data.max != null) {
+				alert(data.max);
+			} else {
+				$("#" + id).attr('src', data.url);
+				alert(data.url);
+				$("#" + id + "Input").attr('value', data.url);
+			}
+		}
+	}
+	$("#" + formid).ajaxSubmit(options);
+}
 
+</script>
 <body>
 <div class="page-wrapper" id="personalpage">
             <nav id="sidebar" class="sidebar-wrapper">
               <div class="sidebar-content">
                 <a href="#" id="toggle-sidebar"><i class="fa fa-bars"></i></a>
                 <div class="sidebar-brand">
-                    <a href="index.jsp">返回首页</a>
+                    <a href="/index">返回首页</a>
                 </div>
                 <div class="sidebar-header">
                     <div class="user-pic">
@@ -137,7 +160,7 @@
                             <h1>添加课程</h1>
                         </header>
                         <hr class="title-hr">
-                        <form action="/formUpload_1" id="ajform" method="post">
+                        <form action="/formUpload_1" id="ajform" method="post" enctype="multiple/form-data">
 	                        <label>课程名：</label>
 	                        <input type="text" class="form-control" name="courseName">
 	                        <label>课程介绍：</label>
@@ -183,10 +206,52 @@
                             <h1>所有教学点</h1>
                         </header>
                 </div>
+                 <div class="container-fluid right-nav-content">
+                        <header class="header">
+                            <h1>添加开班信息</h1>
+                        </header>
+                </div>
+                <div class="container-fluid right-nav-content">
+                        <header class="header">
+                            <h1>所有开班信息</h1>
+                        </header>
+                </div>
                 <div class="container-fluid right-nav-content">
                         <header class="header">
                             <h1>入职办理</h1>
                         </header>
+                         <hr class="title-hr">
+                        <form action="/addUser" method="post">
+	                        <label>中文名：</label>
+	                        <input type="text" class="form-control" name="usernameCh" required>
+	                        <label>英文名：</label>
+	                        <input type="text" class="form-control" name="usernameEn" required>
+	                        <label>手机号：</label>
+	                        <input type="text" class="form-control" name="phone" required>
+	                        <label>邮箱：</label>
+	                        <input type="email" class="form-control" name="email" required>
+	                        <label>职位：</label>
+	                        <div class="radio">
+							  <label>
+							    <input type="radio" name="userRoot" id="optionsRadios1" value="teacher" checked>
+							    教师
+							  </label>
+							</div>
+							<div class="radio">
+							  <label>
+							    <input type="radio" name="userRoot" id="optionsRadios2" value="adminer">
+							    教务
+							  </label>
+							</div>
+							<div class="radio">
+							  <label>
+							    <input type="radio" name="userRoot" id="optionsRadios3" value="parttime">
+							    助教
+							  </label>
+							</div>
+						    <button class="btn btn-primary addcoursebtn" type="submit">添加</button>
+						    <button class="btn btn-default addcoursebtn" type="reset">取消</button>
+    					</form>
                 </div>
                 <div class="container-fluid right-nav-content">
                         <header class="header">
@@ -212,30 +277,10 @@
         </div><!-- page-wrapper -->
 	
 	
-		<script src="res/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+		
 		<script src="res/js/bootstrap.min.js" type="text/javascript"></script>
 		<script src="res/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 		<script src="res/assets/js/custom.js"></script>
-		<script>
-function uploadPic1(id, formid) {
-	//上传图片 异步
-	$ajax({
-		url : "/ajaxUpload1",
-		type : "post",
-		dataType : "json",
-		success : function(data) {
-			if (data.max != null) {
-				alert(data.max);
-			} else {
-				$("#" + id).attr('src', data.url);
-				alert(data.url);
-				$("#" + id + "Input").attr('value', data.url);
-			}
-		}
-	})
-	$("#" + formid).ajaxSubmit(options);
-}
-
-</script>
+		
 </body>
 </html>
