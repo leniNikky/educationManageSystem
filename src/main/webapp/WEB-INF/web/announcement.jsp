@@ -20,6 +20,7 @@
         <link href="res/css/global.css" rel="stylesheet" type="text/css" />
         <link href="res/css/lib.css" rel="stylesheet" type="text/css" />
         <link href="res/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="res/css/newstyle.css" rel="stylesheet" type="text/css" />
         <script src="res/js/jquery-1.9.1.min.js">
         </script>
         <script src="res/js/global.js">
@@ -94,9 +95,19 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="/allannouncementofgeneral"​ class='on trans'>
+                         <c:choose>
+                          <c:when test="${user ne null }">
+                            <a href="allannouncement"​ class='on trans'​>
                                 公告
                             </a>
+                        </c:when>
+                        <c:otherwise>
+                         <a href="announcements"​ class='on trans'​>
+                                公告
+                            </a>
+                        </c:otherwise>
+                        </c:choose>
+                          
                         </div>
                         <div class="nav-item text-center trans" style="float:right">
                             <a href="login.jsp"​>
@@ -130,33 +141,26 @@
                 <div class="blank25">
                 </div>
                 <c:forEach items="${announcements}" var="announcement">
-                <div id="info-detail" class="wrap1200 wow fadeInUp">
-                    <div class="top text-center">
-                        <div class="info-title">
-                           ${announcement.announcementTitle }
-                        </div>
-                        <span>
-                            发布时间： ${announcement.announcementTime }&nbsp;&nbsp;发布者：  ${announcement.announcer }
-                        </span>
-                        <div class="blank9">
-                        </div>
-                    </div>
-                    <div class="blank25">
-                    </div>
-                    <div class="editor wow fadeInUp">
-                        <div>
-                            <p style="text-align: left;font-size:1.1em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                ${announcement.announcementContent }
-                            </p>
-                        </div>
-                    </div>
+                <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1"></div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-10">
+	                <div class="panel panel-primary">
+				      <div class="panel-heading">
+				        <h3 class="panel-title pull-left"> ${announcement.announcementTitle }</h3>
+				        <h6 style="color:#fff;margin-top:5px;">&nbsp;&nbsp; ${announcement.announcementTime }&nbsp;&nbsp;  ${announcement.announcer }</h6>
+				      </div>
+				      <div class="panel-body">
+				        ${announcement.announcementContent }
+				                               
+				      </div>
+				    </div>
                 </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-1"></div>
+                </div>
+                
+               
                 </c:forEach>
-                <div class="blank25">
-                </div>
-                <div class="blank25">
-                </div>
-      
+
             <div class="blank25 hide992">
             </div>
             <div class="blank25 hide992">

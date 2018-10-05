@@ -108,19 +108,28 @@ function uploadPic1(id, formid) {
                                 </ul>
                             </div>
                         </li>
+                         <li class="sidebar-dropdown">
+                            <a href="#"><i class="fa fa-bar-chart-o"></i><span>通知管理</span></a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li class="left-nav-item5"><a href="#">发布公告</a></li>
+                                    <li class="left-nav-item5"><a href="#">所有公告</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="sidebar-dropdown">
                             <a href="#"><i class="fa fa-diamond"></i><span>员工管理</span></a>
                             <div class="sidebar-submenu">
                                 <ul>
-                                    <li class="left-nav-item5"><a href="#">入职办理</a></li>
-                                    <li class="left-nav-item5"><a href="#">工资单</a></li>
-                                    <li class="left-nav-item5"><a href="#">离职办理</a></li>
+                                    <li class="left-nav-item6"><a href="#">入职办理</a></li>
+                                    <li class="left-nav-item6"><a href="#">工资单</a></li>
+                                    <li class="left-nav-item6"><a href="#">离职办理</a></li>
                                 </ul>
                             </div>
                         </li>
                         <li class="header-menu"><span>个人操作</span></li>
-                        <li class="left-nav-item6"><a href="#"><i class="fa fa-tv"></i><span>修改个人信息</span></a></li>                   
-                        <li class="left-nav-item7"><a href="#"><i class="fa fa-photo"></i><span>修改密码</span></a></li>
+                        <li class="left-nav-item7"><a href="#"><i class="fa fa-tv"></i><span>修改个人信息</span></a></li>                   
+                        <li class="left-nav-item8"><a href="#"><i class="fa fa-photo"></i><span>修改密码</span></a></li>
                     </ul>
                    </div><!-- sidebar-menu  -->            
                 </div><!-- sidebar-content  -->
@@ -214,6 +223,38 @@ function uploadPic1(id, formid) {
                 <div class="container-fluid right-nav-content">
                         <header class="header">
                             <h1>所有开班信息</h1>
+                        </header>
+                </div>
+                 <div class="container-fluid right-nav-content">
+                        <header class="header">
+                            <h1>发布公告</h1>
+                        </header>
+                         <hr class="title-hr">
+                        <form action="/addannouncement" method="post">
+	                        <label>标题：</label>
+	                        <input type="text" class="form-control" name="announcementTitle" required>
+	                        <label>公告内容：</label>
+	                        <textarea class="form-control" rows="5" name="announcementContent" required></textarea>
+	                         <label>职位：</label>
+							<div class="radio">
+							  <label>
+							    <input type="radio" name="announcementRoot" id="optionsRadios2" value="general" checked>
+							    所有人可见
+							  </label>
+							</div>
+							<div class="radio">
+							  <label>
+							    <input type="radio" name="announcementRoot" id="optionsRadios3" value="worker">
+							    仅内部员工可见
+							  </label>
+							</div>
+						    <button class="btn btn-primary addcoursebtn" type="submit">添加</button>
+						    <button class="btn btn-default addcoursebtn" type="reset">取消</button>
+    					</form>
+                </div>
+                <div class="container-fluid right-nav-content">
+                        <header class="header">
+                            <h1>所有公告</h1>
                         </header>
                 </div>
                 <div class="container-fluid right-nav-content">

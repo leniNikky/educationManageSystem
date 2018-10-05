@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -96,9 +97,18 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="allannouncementofgeneral"​>
+                        <c:choose>
+                          <c:when test="${user ne null }">
+                            <a href="allannouncement"​>
                                 公告
                             </a>
+                        </c:when>
+                        <c:otherwise>
+                         <a href="announcements"​>
+                                公告
+                            </a>
+                        </c:otherwise>
+                        </c:choose>
                         </div>
                         <div class="nav-item text-center trans" style="float:right">
                             <a href="news.html"​>

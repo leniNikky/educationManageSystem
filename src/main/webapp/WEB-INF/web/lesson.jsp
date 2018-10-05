@@ -95,9 +95,18 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="/allannouncement"​>
+                          <c:choose>
+                          <c:when test="${user ne null }">
+                            <a href="allannouncement"​>
                                 公告
                             </a>
+                        </c:when>
+                        <c:otherwise>
+                         <a href="announcements"​>
+                                公告
+                            </a>
+                        </c:otherwise>
+                        </c:choose>
                         </div>
                         <div class="nav-item text-center trans" style="float:right">
                             <a href="login.jsp"​>
