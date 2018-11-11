@@ -9,7 +9,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>
-         ReadingAcademy
+         
         </title>
         <meta name="keywords" content="" />
         <meta name="description" content="" />
@@ -109,9 +109,19 @@
                         </c:choose>
                         </div>
                         <div class="nav-item text-center trans" style="float:right">
-                            <a href="login.jsp"​>
+                         <c:choose>
+                          <c:when test="${user ne null }">
+                           <a href="/usersLogin"​>
                                 <img src="res/images/userimage.jpg" alt="" class="max-w100 max-h100 trans" style="border-radius:50%;width:30px;margin-right:5px;">
                             </a>
+                        </c:when>
+                        <c:otherwise>
+                         <a href="login.jsp"​>
+                                <img src="res/images/userimage.jpg" alt="" class="max-w100 max-h100 trans" style="border-radius:50%;width:30px;margin-right:5px;">
+                            </a>
+                        </c:otherwise>
+                        </c:choose>
+                           
                         </div>
                         <!--<div class="member show992 clean"> <a href="#"​ class="login member-btn fl content-box text-center trans"><i></i>登录</a> <a href="#"​ class="try member-btn fl content-box text-center trans">注册账号</a> </div>-->
                     </div>
@@ -122,6 +132,7 @@
                     onclick="ActionMenu();">
                     </a>
                 </div>
+            
             </div>
         </header>
          <div id="header-blank" class="show992">

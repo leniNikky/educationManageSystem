@@ -16,17 +16,17 @@ public class LessonServiceImpl implements LessonService {
 	private LessonDao lessonDao;
 	public void insertLesson(Lesson lesson) {
 		// TODO Auto-generated method stub
-
+		lessonDao.insertLesson(lesson);
 	}
 
 	public void updateLesson(Lesson lesson) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	public void deleteLesson(String lessonID) {
 		// TODO Auto-generated method stub
-
+		lessonDao.deleteLesson(lessonID);
 	}
 
 	public List<Lesson> allLessonList() {

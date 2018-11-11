@@ -8,7 +8,7 @@
         />
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>ReadingAcademy</title>
+        <title></title>
         <meta name="keywords" content="ReadingAcademy专注英语阅读教育" />
         <meta name="description" content="ReadingAcademy专注英语阅读教育" /> 
         <meta name="author" content="ra" />
@@ -72,12 +72,12 @@
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="index.html"​ class='on trans'>
+                            <a href="index.jsp"​>
                                 首页
                             </a>
                         </div>
                         <div class="nav-item fl text-center trans">
-                            <a href="about.html"​>
+                            <a href="/about"​>
                                 关于
                             </a>
                         </div>
@@ -110,10 +110,20 @@
                         </c:otherwise>
                         </c:choose>
                         </div>
-                        <div class="nav-item text-center trans" style="float:right">
-                            <a href="news.html"​>
+                         <div class="nav-item text-center trans" style="float:right">
+                         <c:choose>
+                          <c:when test="${user ne null }">
+                           <a href="/usersLogin"​>
                                 <img src="res/images/userimage.jpg" alt="" class="max-w100 max-h100 trans" style="border-radius:50%;width:30px;margin-right:5px;">
                             </a>
+                        </c:when>
+                        <c:otherwise>
+                         <a href="login.jsp"​>
+                                <img src="res/images/userimage.jpg" alt="" class="max-w100 max-h100 trans" style="border-radius:50%;width:30px;margin-right:5px;">
+                            </a>
+                        </c:otherwise>
+                        </c:choose>
+                           
                         </div>
                     
                         <!--<div class="member show992 clean"> <a href="#"​ class="login member-btn fl content-box text-center trans"><i></i>登录</a> <a href="#"​ class="try member-btn fl content-box text-center trans">注册账号</a> </div>-->
@@ -121,13 +131,11 @@
                 </nav>
                
                 <!--<div class="header-user fr"> <a href="#"​ class="login inline-block text-center border-box trans hide992" rel="nofollow"><i></i>登录</a> <a href="#"​ class="try inline-block text-center border-box trans hide992" rel="nofollow">注册账号</a> </div>-->
-                <form action="/toIndex" method="post">
-                <div class="menu-button fr stopP show992 trans">
+                   <div class="menu-button fr stopP show992 trans">
                     <a href="#"​ class="fa fa-align-justify trans" rel="nofollow"
                     onclick="ActionMenu();">
                     </a>
                 </div>
-                </form>
                 
             </div>
         </header>

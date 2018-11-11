@@ -20,4 +20,13 @@
 	<insert id="addUser" parameterType="com.ra.pojo.User">
 	insert into User(user_id,username_en,username_ch,phone,email,user_root,password) values(#{userID},#{usernameEn},#{usernameCh},#{phone},#{email},#{userRoot},#{password})
 	</insert>
+	<!-- 修改个人信息 
+	<update id="EditMsg">
+		update user set email=#{2},phone=#{1} where user_id = #{0}
+	</update>-->
+	<!-- 修改密码 -->
+	<update id="changePw">
+		update user set password=#{0} where user_id = #{1}
+	</update>
+	
 </mapper>

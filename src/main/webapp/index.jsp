@@ -8,7 +8,7 @@
         />
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>ReadingAcademy</title>
+        <title></title>
         <meta name="keywords" content="ReadingAcademy专注英语阅读教育" />
         <meta name="description" content="ReadingAcademy专注英语阅读教育" /> 
         <meta name="author" content="ra" />

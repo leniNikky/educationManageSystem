@@ -16,17 +16,17 @@ public class AddressServiceImpl implements AddressService {
 	private AddressDao addressDao;
 	public void insertAddress(Address address) {
 		// TODO Auto-generated method stub
-
+		addressDao.insertAddress(address);
 	}
 
 	public void updateAddress(Address address) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	public void deleteAddress(String addressID) {
 		// TODO Auto-generated method stub
-
+		addressDao.deleteAddress(addressID);
 	}
 
 	public List<Address> allAddressList() {

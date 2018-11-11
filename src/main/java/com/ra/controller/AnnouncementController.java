@@ -10,8 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ra.pojo.Address;
 import com.ra.pojo.Announcement;
+import com.ra.pojo.Course;
+import com.ra.pojo.Lesson;
+import com.ra.service.AddressService;
 import com.ra.service.AnnouncementService;
+import com.ra.service.CourseService;
+import com.ra.service.LessonService;
 
 /**
  * controller类 注解controller
@@ -21,7 +27,12 @@ import com.ra.service.AnnouncementService;
 public class AnnouncementController {
 	@Autowired
 	private AnnouncementService announcementService;
-	
+	@Autowired
+	private CourseService courseService;
+	@Autowired
+	private AddressService addressService;
+	@Autowired
+	private LessonService lessonService;
 	
 	//添加公告
 			@RequestMapping(value = "/addannouncement")
@@ -33,7 +44,15 @@ public class AnnouncementController {
 				announcement.setAnnouncementTime(df.format(new Date()));
 				announcement.setAnnouncementID(announcementID);
 				announcementService.addAnnouncement(announcement);
-				mav.setViewName("allannouncement"); // 返回的文件名
+				List<Announcement> announcements = announcementService.allAnnouncement();
+				mav.addObject("announcements", announcements);
+				List<Course> allcourse = courseService.allCourseList();
+				mav.addObject("allcourse", allcourse);
+				List<Address> alladdress = addressService.allAddressList();
+				mav.addObject("alladdress", alladdress);
+				List<Lesson> alllesson = lessonService.allLessonList();
+				mav.addObject("alllesson", alllesson);
+				mav.setViewName("user"); // 返回的文件名
 				return mav;
 
 			}
@@ -55,6 +74,36 @@ public class AnnouncementController {
 			List<Announcement> announcements = announcementService.allAnnouncementOfGeneral();
 			mav.addObject("announcements", announcements);
 			mav.setViewName("announcement"); // 返回的文件名
+			return mav;
+
+		}
+	//查找所有公告返回公告栏
+		@RequestMapping(value = "/findannouncement")
+		public ModelAndView findannouncement() {
+			ModelAndView mav = new ModelAndView();
+			List<Announcement> announcements = announcementService.allAnnouncement();
+			mav.addObject("announcements", announcements);
+			mav.setViewName("user"); // 返回的文件名
+			System.out.println("公告："+announcements);
+			return mav;
+
+		}
+		
+	//删除某条公告
+		@RequestMapping(value = "/deleteAn")
+		public ModelAndView deleteAn(String announcementID) {
+			ModelAndView mav = new ModelAndView();
+			announcementService.deleteAnnouncement(announcementID);
+			List<Announcement> announcements = announcementService.allAnnouncement();
+			mav.addObject("announcements", announcements);
+			List<Course> allcourse = courseService.allCourseList();
+			mav.addObject("allcourse", allcourse);
+			List<Address> alladdress = addressService.allAddressList();
+			mav.addObject("alladdress", alladdress);
+			List<Lesson> alllesson = lessonService.allLessonList();
+			mav.addObject("alllesson", alllesson);
+			mav.setViewName("user"); // 返回的文件名
+			
 			return mav;
 
 		}

@@ -46,10 +46,10 @@
                 $(".right-nav-content").eq($(this).index()+12).show().siblings("div").hide();
         });
         $(".left-nav-item7").click(function() {
-            	$(".right-nav-content").eq($(this).index()+15).show().siblings("div").hide();
+            	$(".right-nav-content").eq(15).show().siblings("div").hide();
         });
         $(".left-nav-item8").click(function() {
-        		$(".right-nav-content").eq($(this).index()+16).show().siblings("div").hide();
+        		$(".right-nav-content").eq(16).show().siblings("div").hide();
         });
         
 

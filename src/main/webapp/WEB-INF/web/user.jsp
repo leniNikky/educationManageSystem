@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Reading Academy</title>
+	<title></title>
 	
 	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -41,6 +42,8 @@ function uploadPic1(id, formid) {
 
 </script>
 <body>
+
+
 <div class="page-wrapper" id="personalpage">
             <nav id="sidebar" class="sidebar-wrapper">
               <div class="sidebar-content">
@@ -128,7 +131,7 @@ function uploadPic1(id, formid) {
                             </div>
                         </li>
                         <li class="header-menu"><span>个人操作</span></li>
-                        <li class="left-nav-item7"><a href="#"><i class="fa fa-tv"></i><span>修改个人信息</span></a></li>                   
+                        <li class="left-nav-item7" id="left-nav-item7"><a href="#"><i class="fa fa-tv"></i><span>修改个人信息</span></a></li>                   
                         <li class="left-nav-item8"><a href="#"><i class="fa fa-photo"></i><span>修改密码</span></a></li>
                     </ul>
                    </div><!-- sidebar-menu  -->            
@@ -169,15 +172,14 @@ function uploadPic1(id, formid) {
                             <h1>添加课程</h1>
                         </header>
                         <hr class="title-hr">
-                        <form action="/formUpload_1" id="ajform" method="post" enctype="multiple/form-data">
+                        <form action="/addcourse" method="post">
 	                        <label>课程名：</label>
 	                        <input type="text" class="form-control" name="courseName">
 	                        <label>课程介绍：</label>
 	                        <textarea class="form-control" rows="5" name="courseIntro"></textarea>
 	                        <label>课程封面：</label>
-	                        <input type="file" name="pic" onchange="uploadPic1('pic','ajform')"> 
+	                        <input type="file" name="pic" value=""> 
 						    <input type="hidden" name="courseImg" value="" id="picInput">
-						    <img alt="" src="" id="pic" width=50 height=50>
 						    <button class="btn btn-primary addcoursebtn" type="submit">添加</button>
 						    <button class="btn btn-default addcoursebtn" type="reset">取消</button>
     					</form>
@@ -187,15 +189,36 @@ function uploadPic1(id, formid) {
                             <h1>所有课程</h1>
                         </header>
                         <hr class="title-hr">
+                        <table class="table table-bordered">
+					      	<thead>
+					      		<tr>
+					      			<th>课程名</th>
+					      			<th>封面</th>
+					      			<th>课程介绍</th>
+					      			<th>操作</th>
+					      		</tr>
+					      	</thead>
+					      	<tbody>
+					      	 <c:forEach items="${allcourse}" var="course">
+					      		<tr>
+					      			<td>${course.courseName }</td>
+					      			<td><img src="${course.courseImg }" width=40 height=40></td>
+					      			<td>${course.courseIntro }</td>
+					      			<td>
+					      				<a href="/deleteCourse?courseID=${course.courseID }" class="btn btn-primary btn-sm">删除</a>
+					      			</td>
+					      		</tr>
+					      		</c:forEach>
+					      	</tbody>
+						</table>
                         
                 </div>
-               
                 <div class="container-fluid right-nav-content">
                         <header class="header">
                             <h1>添加教学点</h1>
                         </header>
                         <hr class="title-hr">
-                        <form action="/addressUpload_1" id="addressform" method="post">
+                        <form action="/addAddress" method="post">
 	                        <label>教学点名称：</label>
 	                        <input type="text" class="form-control" name="addressName">
 	                        <label>教学点介绍：</label>
@@ -203,9 +226,8 @@ function uploadPic1(id, formid) {
 	                        <label>教学点联系方式：</label>
 	                        <input type="text" class="form-control" name="addressPhone">
 	                        <label>教学点照片：</label>
-	                        <input type="file" name="pic" onchange="uploadPic1('pic','ajform')"> 
+	                        <input type="file" name="pic"> 
 						    <input type="hidden" name="addressImg" value="" id="picInput">
-						    <img alt="" src="" id="pic" width=50 height=50>
 						    <button class="btn btn-primary addcoursebtn" type="submit">添加</button>
 						    <button class="btn btn-default addcoursebtn" type="reset">取消</button>
     					</form>
@@ -214,18 +236,80 @@ function uploadPic1(id, formid) {
                         <header class="header">
                             <h1>所有教学点</h1>
                         </header>
+                        <hr class="title-hr">
+                         <table class="table table-bordered">
+					      	<thead>
+					      		<tr>
+					      			<th>地点名</th>
+					      			<th>封面</th>
+					      			<th>联系方式</th>
+					      			<th>介绍</th>
+					      			<th>操作</th>
+					      		</tr>
+					      	</thead>
+					      	<tbody>
+					      	 <c:forEach items="${alladdress}" var="address">
+					      		<tr>
+					      			<td>${address.addressName }</td>
+					      			<td><img src="${address.addressImg }" width=40 height=40></td>
+					      			<td>${address.addressPhone }</td>
+					      			<td>${address.addressIntro }</td>
+					      			<td>
+					      				<a href="/deleteAddress?addressID=${address.addressID }" class="btn btn-primary btn-sm">删除</a>
+					      			</td>
+					      		</tr>
+					      		</c:forEach>
+					      	</tbody>
+						</table>
                 </div>
-                 <div class="container-fluid right-nav-content">
+                <div class="container-fluid right-nav-content">
                         <header class="header">
-                            <h1>添加开班信息</h1>
+                            <h1>添加开课信息</h1>
                         </header>
+                        <hr class="title-hr">
+                        <form action="/addLesson" method="post">
+	                        <label>课程名称：</label>
+	                        <input type="text" class="form-control" name="lessonName">
+	                        <label>课程介绍：</label>
+	                        <textarea class="form-control" rows="5" name="lessonIntro"></textarea>
+	                        <label>课程照片：</label>
+	                        <input type="file" name="pic"> 
+						    <input type="hidden" name="addressImg" value="" id="picInput">
+						    <button class="btn btn-primary addcoursebtn" type="submit">添加</button>
+						    <button class="btn btn-default addcoursebtn" type="reset">取消</button>
+    					</form>
                 </div>
                 <div class="container-fluid right-nav-content">
                         <header class="header">
                             <h1>所有开班信息</h1>
                         </header>
+                        <hr class="title-hr">
+                        <table class="table table-bordered">
+					      	<thead>
+					      		<tr>
+					      			<th>开课名</th>
+					      			<th>封面</th>
+					      			<th>课程介绍</th>
+					      			<th>发布时间</th>
+					      			<th>操作</th>
+					      		</tr>
+					      	</thead>
+					      	<tbody>
+					      	 <c:forEach items="${alllesson}" var="lesson">
+					      		<tr>
+					      			<td>${lesson.lessonName }</td>
+					      			<td><img src="${lesson.lessonImg }" width=40 height=40></td>
+					      			<td>${lesson.lessonIntro }</td>
+					      			<td>${lesson.lessonYear }-${lesson.lessonDate }</td>
+					      			<td>
+					      				<a href="/deleteLesson?lessonID=${lesson.lessonID }" class="btn btn-primary btn-sm">删除</a>
+					      			</td>
+					      		</tr>
+					      		</c:forEach>
+					      	</tbody>
+						</table>
                 </div>
-                 <div class="container-fluid right-nav-content">
+                <div class="container-fluid right-nav-content">
                         <header class="header">
                             <h1>发布公告</h1>
                         </header>
@@ -256,6 +340,8 @@ function uploadPic1(id, formid) {
                         <header class="header">
                             <h1>所有公告</h1>
                         </header>
+                        <hr class="title-hr">
+                       <jsp:include page="allan.jsp"></jsp:include>
                 </div>
                 <div class="container-fluid right-nav-content">
                         <header class="header">
@@ -304,21 +390,67 @@ function uploadPic1(id, formid) {
                             <h1>离职办理</h1>
                         </header>
                 </div>
-                <div class="container-fluid right-nav-content">
+                <div class="container-fluid right-nav-content" id="changeMsg">
                         <header class="header">
                             <h1>修改个人信息</h1>
                         </header>
+                        <hr class="title-hr">
                 </div>
                 <div class="container-fluid right-nav-content">
                         <header class="header">
                             <h1>修改密码</h1>
                         </header>
+                        <hr class="title-hr">
+                        <h3>${checkPw }</h3>
+                    
+	                        <label>原密码：</label>
+	                        <input type="password" class="form-control" name="oldPw" id="oldPw" required>
+	                        <label>新密码：</label>
+	                        <input type="password" class="form-control" name="newPw" id="newPw" required>
+	                        <label>确认密码：</label>
+	                        <input type="password" class="form-control" name="confirmPw" id="confirmPw" required>
+						    <button class="btn btn-primary addcoursebtn" type="submit" id="changePwBtn">修改</button>
+						    <button class="btn btn-default addcoursebtn" type="reset">取消</button>
+    				
                 </div>
             </main><!-- page-content" -->
         </div><!-- page-wrapper -->
-	
-	
+        <input type="hidden" value="${user.password }" id="changepw">
+        <input type="hidden" value="${user.email }" id="emailforchangepw">
+		<script>
+		$("#changePwBtn").ready(function(){
+			$(this).click(function(){
+				$.ajax({
+			       	 type:"post",
+			       	 url:"changePw",
+			       	 data:{email:$("#emailforchangepw").val(),changepw:$("#changepw").val(),oldPw:$("#oldPw").val(),newPw:$("#newPw").val(),confirmPw:$("#confirmPw").val()},
+			       	 dataType:"text",
+			       	 beforeSend:function(){
+			       		 $(this).val("正在修改，请稍等...");
+			       	 }, 
+			       	 error:function(data){
+			       		 $(this).val("修改");
+			       		 $("#checkPw").html(data).css("color","red");
+			    		},
+			    		success:function(data){
+			    			if(data == "changePwSuccess"){
+			    				$(this).val("修改");
+			    			}else{
+			    				$(this).val("修改");
+			    				$("#checkPw").html(data).css("color","red");
+			    				
+			    			}
+			    			
+			    				 
+			    		}
+			})
+			})
+				
+			
+		})
 		
+			
+		</script>
 		<script src="res/js/bootstrap.min.js" type="text/javascript"></script>
 		<script src="res/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 		<script src="res/assets/js/custom.js"></script>
